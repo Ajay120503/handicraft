@@ -136,8 +136,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-gray-900" /> */}
 
         {/* Decorative shape */}
-        <div className="absolute -right-32 -top-32 w-96 h-96 rounded-full bg-primary-200/30 dark:bg-primary-500/5 blur-3xl" />
-        <div className="absolute -left-32 -bottom-32 w-80 h-80 rounded-full bg-secondary-200/20 dark:bg-secondary-500/5 blur-3xl" />
+        {/* <div className="absolute -right-32 -top-32 w-96 h-96 rounded-full bg-primary-200/30 dark:bg-primary-500/5 blur-3xl" /> */}
+        {/* <div className="absolute -left-32 -bottom-32 w-80 h-80 rounded-full bg-secondary-200/20 dark:bg-secondary-500/5 blur-3xl" /> */}
 
         <div className="container-custom relative z-10">
           <motion.div
