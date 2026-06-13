@@ -369,7 +369,7 @@ const Hero = () => {
             </button>
 
             {/* Premium Dots */}
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+            <div className="absolute hidden sm:flex bottom-24 left-1/2 -translate-x-1/2 gap-2.5 z-10">
               {banners.map((_, i) => (
                 <button
                   key={i}
