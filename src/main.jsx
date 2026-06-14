@@ -8,6 +8,7 @@ import App from "./App.jsx";
 import "./styles/index.css";
 import "./styles/admin.css";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import CustomCursor from "./components/common/CustomCursor.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
           <HelmetProvider>
+            <CustomCursor />
             <App />
           </HelmetProvider>
           <Toaster

@@ -4,6 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* cursor */
+
+@keyframes cursor-snip {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  60% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(2.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
+
+/* Hide the native cursor only when our custom cursor is active (desktop/mouse) */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/*  */
+
 @layer base {
   html {
     scroll-behavior: smooth;
