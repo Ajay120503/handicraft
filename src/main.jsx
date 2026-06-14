@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.jsx";
 import "./styles/index.css";
+import "./styles/admin.css";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 const queryClient = new QueryClient({

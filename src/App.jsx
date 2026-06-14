@@ -1,5 +1,4 @@
 import React, { lazy, Suspense, useEffect } from "react";
-import { Toaster } from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 import { useAuth } from "./store/authStore.js";
 import { useSettings } from "./store/settingsStore.js";
