@@ -2,6 +2,55 @@
    ADMIN PANEL STYLES - Dark/Light Theme
    ========================================== */
 
+/* Admin Form Input */
+.input {
+  @apply w-full bg-white dark:bg-gray-800/90 
+         border-2 border-gray-200 dark:border-gray-700/80 
+         rounded-xl text-sm 
+         text-gray-900 dark:text-gray-100 
+         placeholder-gray-400 dark:placeholder-gray-500
+         focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 
+         dark:focus:ring-primary-400/20 
+         outline-none transition-all duration-200
+         px-4 py-2.5;
+}
+
+.input:focus {
+  @apply border-primary-500 ring-2 ring-primary-500/20 
+         dark:focus:ring-primary-400/20;
+}
+
+select.input {
+  @apply appearance-none bg-no-repeat bg-[right_0.75rem_center];
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-size: 1.25em 1.25em;
+}
+
+.dark select.input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+.input[type="file"] {
+  @apply file:mr-3 file:py-2 file:px-4
+         file:rounded-lg file:border-0
+         file:text-sm file:font-semibold
+         file:bg-primary-50 file:text-primary-700
+         dark:file:bg-primary-900/30 dark:file:text-primary-400
+         file:cursor-pointer file:transition-all
+         hover:file:bg-primary-100 dark:hover:file:bg-primary-900/50;
+}
+
+textarea.input {
+  @apply px-4 py-3 min-h-[80px] resize-y;
+}
+
+/* Admin Form Label */
+.label {
+  @apply block text-sm font-semibold 
+         text-gray-700 dark:text-gray-300 
+         mb-1.5;
+}
+
 /* Admin Card Base */
 .admin-card {
   @apply bg-white dark:bg-gray-800/90 rounded-2xl border border-gray-100 dark:border-gray-700/50 
