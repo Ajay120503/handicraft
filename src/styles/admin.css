@@ -44,6 +44,16 @@ textarea.input {
   @apply px-4 py-3 min-h-[80px] resize-y;
 }
 
+select.input option,
+.admin-select option {
+  @apply bg-white text-gray-900;
+}
+
+.dark select.input option,
+.dark .admin-select option {
+  @apply bg-gray-800 text-gray-100;
+}
+
 /* Admin Form Label */
 .label {
   @apply block text-sm font-semibold 
