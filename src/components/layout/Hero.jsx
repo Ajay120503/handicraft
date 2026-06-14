@@ -44,17 +44,10 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, [banners.length]);
 
+  // ── Synced parallax: all three layers now move together as one unit ──
   useEffect(() => {
-    const tgt = {
-      bg: { x: 0, y: 0 },
-      mid: { x: 0, y: 0 },
-      fg: { x: 0, y: 0 },
-    };
-    const cur = {
-      bg: { x: 0, y: 0 },
-      mid: { x: 0, y: 0 },
-      fg: { x: 0, y: 0 },
-    };
+    let tgt = { x: 0, y: 0 };
+    let cur = { x: 0, y: 0 };
     let raf;
 
     const onMove = (e) => {
@@ -62,13 +55,11 @@ const Hero = () => {
       if (!r) return;
       const mx = (e.clientX - r.left) / r.width - 0.5;
       const my = (e.clientY - r.top) / r.height - 0.5;
-      tgt.bg = { x: mx * -14, y: my * -10 };
-      tgt.mid = { x: mx * -28, y: my * -20 };
-      tgt.fg = { x: mx * -46, y: my * -32 };
+      tgt = { x: mx * -28, y: my * -20 };
     };
 
     const onLeave = () => {
-      tgt.bg = tgt.mid = tgt.fg = { x: 0, y: 0 };
+      tgt = { x: 0, y: 0 };
     };
 
     const lerp = (a, b, t) => ({
@@ -77,24 +68,14 @@ const Hero = () => {
     });
 
     const loop = () => {
-      cur.bg = lerp(cur.bg, tgt.bg, 0.06);
-      cur.mid = lerp(cur.mid, tgt.mid, 0.07);
-      cur.fg = lerp(cur.fg, tgt.fg, 0.08);
+      cur = lerp(cur, tgt, 0.07);
+      const transform = `translate(${cur.x.toFixed(2)}px, ${cur.y.toFixed(
+        2
+      )}px) scale(1.12)`;
 
-      if (layerBgRef.current)
-        layerBgRef.current.style.transform = `translate(${cur.bg.x.toFixed(
-          2
-        )}px, ${cur.bg.y.toFixed(2)}px) scale(1.12)`;
-
-      if (layerMidRef.current)
-        layerMidRef.current.style.transform = `translate(${cur.mid.x.toFixed(
-          2
-        )}px, ${cur.mid.y.toFixed(2)}px) scale(1.12)`;
-
-      if (layerFgRef.current)
-        layerFgRef.current.style.transform = `translate(${cur.fg.x.toFixed(
-          2
-        )}px, ${cur.fg.y.toFixed(2)}px) scale(1.12)`;
+      if (layerBgRef.current) layerBgRef.current.style.transform = transform;
+      if (layerMidRef.current) layerMidRef.current.style.transform = transform;
+      if (layerFgRef.current) layerFgRef.current.style.transform = transform;
 
       raf = requestAnimationFrame(loop);
     };
@@ -122,23 +103,6 @@ const Hero = () => {
   if (banners.length === 0) {
     return (
       <section className="relative min-h-[70vh] sm:min-h-[82vh] flex items-center overflow-hidden bg-gradient-to-br from-primary-100 via-white to-secondary-100 dark:from-gray-950 dark:via-gray-900 dark:to-primary-950/30">
-        {/* Decorative background elements */}
-        {/* <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.08]">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 2px 2px, currentColor 2px, transparent 0)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-gray-900" /> */}
-
-        {/* Decorative shape */}
-        {/* <div className="absolute -right-32 -top-32 w-96 h-96 rounded-full bg-primary-200/30 dark:bg-primary-500/5 blur-3xl" /> */}
-        {/* <div className="absolute -left-32 -bottom-32 w-80 h-80 rounded-full bg-secondary-200/20 dark:bg-secondary-500/5 blur-3xl" /> */}
-
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -146,14 +110,6 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            {/* <motion.span
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 text-xs font-semibold mb-5"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              Premium Fashion Since 2024
-            </motion.span> */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-5 leading-tight text-gray-900 dark:text-white">
               Custom Fashion
               <br />
@@ -196,7 +152,7 @@ const Hero = () => {
                   exit={{ opacity: 0, scale: 1.05 }}
                   transition={{ duration: 1.2, ease: "easeInOut" }}
                 >
-                  {/* Layer 1 — Background: blurred, slowest */}
+                  {/* Layer 1 — Background: blurred */}
                   <div
                     ref={layerBgRef}
                     className="absolute inset-16 will-change-transform"
@@ -213,7 +169,7 @@ const Hero = () => {
                     />
                   </div>
 
-                  {/* Layer 2 — Midground: slight desaturate, medium speed */}
+                  {/* Layer 2 — Midground: slight desaturate */}
                   <div
                     ref={layerMidRef}
                     className="absolute inset-16 will-change-transform"
@@ -231,7 +187,7 @@ const Hero = () => {
                     />
                   </div>
 
-                  {/* Layer 3 — Foreground: sharp, fastest — the main subject */}
+                  {/* Layer 3 — Foreground: sharp, the main subject */}
                   <div
                     ref={layerFgRef}
                     className="absolute inset-16 will-change-transform"
@@ -253,6 +209,9 @@ const Hero = () => {
           )}
         </AnimatePresence>
 
+        {/* Contrast overlay so title text always stays readable over the banner */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent dark:from-black/70 dark:via-black/35 dark:to-transparent pointer-events-none" /> */}
+
         {/* Content */}
         <div className="absolute inset-0 flex items-center">
           <div className="container-custom">
@@ -268,11 +227,11 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 }}
                 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-tight max-w-3xl
-          text-primary-700 dark:text-white
-           [--stroke:white] dark:[--stroke:rgba(0,0,0,0.4)]"
-                // style={{
-                //   WebkitTextStroke: "1px var(--stroke)",
-                // }}
+          text-white dark:text-white"
+                style={{
+                  textShadow:
+                    "0 2px 24px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.5)",
+                }}
               >
                 {banners[current]?.title}
               </motion.h1>
@@ -282,42 +241,17 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25 }}
-                  className="text-base inline-block sm:text-lg md:text-xl mt-4 max-w-lg
-      text-gray-900 dark:text-gray-100
-      px-5 py-3"
-                  style={{
-                    background: "var(--torn-bg, white)",
-                    clipPath: `polygon(
-        0% 8%, 3% 0%, 6% 6%, 9% 1%, 12% 7%, 15% 2%, 18% 8%, 21% 1%,
-        24% 6%, 27% 0%, 30% 5%, 33% 1%, 36% 7%, 39% 2%, 42% 8%, 45% 1%,
-        48% 6%, 51% 0%, 54% 5%, 57% 2%, 60% 8%, 63% 1%, 66% 6%, 69% 0%,
-        72% 7%, 75% 2%, 78% 6%, 81% 1%, 84% 8%, 87% 2%, 90% 6%, 93% 1%,
-        96% 7%, 100% 3%,
-        100% 92%, 97% 100%, 94% 94%, 91% 100%, 88% 93%, 85% 99%, 82% 94%,
-        79% 100%, 76% 93%, 73% 99%, 70% 94%, 67% 100%, 64% 93%, 61% 99%,
-        58% 94%, 55% 100%, 52% 93%, 49% 99%, 46% 94%, 43% 100%, 40% 93%,
-        37% 99%, 34% 94%, 31% 100%, 28% 93%, 25% 99%, 22% 94%, 19% 100%,
-        16% 93%, 13% 99%, 10% 94%, 7% 100%, 4% 93%, 0% 100%
-      )`,
-                    // paper texture shadow
-                    filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.35))",
-                  }}
+                  className="inline-flex items-center mt-3 max-w-md text-xs sm:text-sm md:text-base font-medium tracking-wide
+      px-4 py-1.5 rounded-full
+      text-gray-900 dark:text-white
+      bg-white/80 dark:bg-white/10
+      backdrop-blur-md
+      border border-black/10 dark:border-white/20
+      shadow-lg shadow-black/10 dark:shadow-black/20"
                 >
                   {banners[current]?.subtitle}
                 </motion.p>
               )}
-
-              {/* {banners[current]?.description && (
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
-                  className="text-sm sm:text-base mt-3 max-w-md leading-relaxed
-            text-gray-600 dark:text-white/65"
-                >
-                  {banners[current]?.description}
-                </motion.p>
-              )} */}
 
               {banners[current]?.ctaText && (
                 <motion.div

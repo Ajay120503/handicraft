@@ -11,7 +11,6 @@ import {
   Minus,
   Plus,
   ChevronRight,
-  Sparkles,
   Star,
   ArrowRight,
   CheckCircle2,
@@ -20,6 +19,7 @@ import {
 import { productAPI, reviewAPI } from "../../api/endpoints.js";
 import SEO from "../../components/common/SEO.jsx";
 import Loader from "../../components/ui/Loader.jsx";
+import Button from "../../components/ui/Button.jsx";
 import Rating from "../../components/ui/Rating.jsx";
 import ProductCard from "../../components/product/ProductCard.jsx";
 import ReviewForm from "../../components/review/ReviewForm.jsx";
@@ -350,22 +350,26 @@ const ProductDetail = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3 mb-6">
-              <motion.button
-                whileTap={{ scale: 0.97 }}
+              <Button
+                variant="outline-dark"
+                size="lg"
+                fullWidth
                 onClick={handleAddToCart}
                 disabled={!isInStock}
-                className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-950 dark:border-white text-gray-950 dark:text-white font-bold text-sm py-3.5 hover:bg-gray-950 hover:text-white dark:hover:bg-white dark:hover:text-gray-950 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                loading={false}
               >
                 <ShoppingCart size={16} /> Add to Cart
-              </motion.button>
-              <motion.button
-                whileTap={{ scale: 0.97 }}
+              </Button>
+              <Button
+                variant="primary"
+                size="lg"
+                fullWidth
                 onClick={handleBuyNow}
                 disabled={!isInStock}
-                className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm py-3.5 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                loading={false}
               >
                 Buy Now <ArrowRight size={15} />
-              </motion.button>
+              </Button>
             </div>
 
             {/* Trust signals — dark card echoing footer */}

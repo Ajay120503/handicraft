@@ -16,7 +16,7 @@ const Button = ({
 }) => {
   const variants = {
     primary:
-      "bg-primary-600 text-white hover:bg-primary-700",
+      "bg-primary-600 text-white hover:bg-primary-700 shadow-lg shadow-primary-600/25",
     secondary: "bg-secondary-500 text-white hover:bg-secondary-600",
     outline:
       "border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-500 dark:hover:text-white",
@@ -52,10 +52,11 @@ const Button = ({
     <motion.button
       type={type}
       disabled={disabled || loading}
-      whileHover={!disabled && !loading ? { scale: 1.02 } : {}}
-      whileTap={!disabled && !loading ? { scale: 0.98 } : {}}
+      whileHover={!disabled && !loading ? { scale: 1.05 } : {}}
+      whileTap={!disabled && !loading ? { scale: 0.95 } : {}}
       className={clsx(
         "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500",
         variants[variant] || variants.primary,
         sizes[size],
         fullWidth && "w-full",

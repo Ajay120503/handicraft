@@ -7,12 +7,12 @@ import {
   X,
   SlidersHorizontal,
   Search,
-  Sparkles,
   ChevronDown,
   Star,
 } from "lucide-react";
 import { productAPI, categoryAPI } from "../../api/endpoints.js";
 import ProductGrid from "../../components/product/ProductGrid.jsx";
+import Button from "../../components/ui/Button.jsx";
 import Loader from "../../components/ui/Loader.jsx";
 import SEO from "../../components/common/SEO.jsx";
 

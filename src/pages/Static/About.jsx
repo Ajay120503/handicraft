@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import {
-  Sparkles,
   Heart,
   Award,
   Users,
@@ -264,9 +263,9 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 text-xs font-semibold mb-3">
+            {/* <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 text-xs font-semibold mb-3">
               What Drives Us
-            </span>
+            </span> */}
             <h2 className="text-4xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white">
               Our Values
             </h2>
@@ -284,7 +283,7 @@ const About = () => {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ delay: i * 0.1, type: "spring", stiffness: 200 }}
                 whileHover={{ y: -6 }}
-                className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 border  dark:border-white/10 border-black/10 dark:border-gray-700"
               >
                 {/* Icon container */}
                 <div

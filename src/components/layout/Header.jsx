@@ -15,7 +15,7 @@ import {
   Lock,
   LayoutDashboard,
   ChevronDown,
-  Sparkles,
+  Star,
   Ruler,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -242,7 +242,7 @@ const Header = () => {
                     to={link.to}
                     end={link.to === "/"}
                     className={({ isActive }) =>
-                      "relative px-4 py-2 rounded-full text-sm font-semibold transition-colors " +
+                      "relative px-4 py-2 rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 " +
                       (isActive
                         ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
                         : "text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400")
@@ -261,7 +261,7 @@ const Header = () => {
                     setSearchOpen(true);
                     setSearchQuery("");
                   }}
-                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors"
+                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center"
                   aria-label="Search"
                 >
                   <Search size={19} />
@@ -270,7 +270,7 @@ const Header = () => {
                 {/* Theme toggle */}
                 <button
                   onClick={toggleTheme}
-                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors hidden sm:flex"
+                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors hidden sm:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 min-h-[44px] min-w-[44px] items-center justify-center"
                   aria-label="Toggle theme"
                 >
                   <AnimatePresence mode="wait">
@@ -293,7 +293,7 @@ const Header = () => {
                 {/* Wishlist */}
                 <Link
                   to="/account/wishlist"
-                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors relative hidden sm:flex"
+                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors relative hidden sm:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 min-h-[44px] min-w-[44px] items-center justify-center"
                   aria-label="Wishlist"
                 >
                   <Heart size={19} />
@@ -314,7 +314,7 @@ const Header = () => {
                 {/* Cart */}
                 <Link
                   to="/cart"
-                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors relative"
+                  className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 transition-colors relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center"
                   aria-label="Cart"
                 >
                   <ShoppingBag size={19} />
@@ -337,7 +337,7 @@ const Header = () => {
                   <div className="relative ml-1">
                     <button
                       onClick={() => setUserMenu(!userMenu)}
-                      className="flex items-center gap-1.5 pl-1 pr-2 py-1 rounded-full border border-gray-100 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                      className="flex items-center gap-1.5 pl-1 pr-2 py-1 rounded-full border border-gray-100 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                     >
                       <div className="w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-sm">
                         {user?.name?.[0]?.toUpperCase() || "U"}
@@ -383,7 +383,7 @@ const Header = () => {
                                 <Link
                                   to="/admin"
                                   onClick={() => setUserMenu(false)}
-                                  className="flex items-center gap-3 px-4 py-2.5 text-sm text-primary-700 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-medium transition-colors"
+                                  className="flex items-center gap-3 px-4 py-2.5 text-sm text-primary-700 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                                 >
                                   <LayoutDashboard size={16} />
                                   Admin Panel
@@ -412,7 +412,7 @@ const Header = () => {
                                 },
                                 {
                                   to: "/account/my-reviews",
-                                  icon: Sparkles,
+                                  icon: Star,
                                   label: "My Reviews",
                                 },
                                 {
@@ -425,7 +425,7 @@ const Header = () => {
                                   key={to}
                                   to={to}
                                   onClick={() => setUserMenu(false)}
-                                  className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors rounded-lg mx-1"
+                                  className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors rounded-lg mx-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                                 >
                                   <Icon size={16} className="text-gray-400" />
                                   {label}
@@ -435,7 +435,7 @@ const Header = () => {
                             <div className="border-t border-gray-100 dark:border-gray-700 py-1.5">
                               <button
                                 onClick={handleLogout}
-                                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                               >
                                 <LogOut size={16} />
                                 Logout
@@ -450,13 +450,13 @@ const Header = () => {
                   <div className="hidden sm:flex items-center gap-2 ml-1">
                     <Link
                       to="/login"
-                      className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                     >
                       Login
                     </Link>
                     <Link
                       to="/register"
-                      className="px-4 py-2 text-sm font-semibold bg-gray-950 hover:bg-primary-700 text-white rounded-full transition-all duration-200"
+                      className="px-4 py-2 text-sm font-semibold bg-gray-950 hover:bg-primary-700 text-white rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                     >
                       Sign Up
                     </Link>
@@ -466,7 +466,7 @@ const Header = () => {
                 {/* Hamburger */}
                 <button
                   onClick={() => setMobileOpen(!mobileOpen)}
-                  className="lg:hidden p-2 ml-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="lg:hidden p-2.5 ml-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 min-h-[44px] min-w-[44px] flex items-center justify-center"
                   aria-label="Toggle menu"
                 >
                   <AnimatePresence mode="wait">
@@ -505,7 +505,7 @@ const Header = () => {
                         <Link
                           to={link.to}
                           onClick={() => setMobileOpen(false)}
-                          className="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 rounded-lg mx-2 transition-colors"
+                          className="block px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 rounded-lg mx-2 transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                         >
                           {link.label}
                         </Link>
@@ -514,7 +514,7 @@ const Header = () => {
                     <div className="flex items-center gap-2 px-4 pt-2 pb-1 border-t border-gray-100 dark:border-gray-800 mt-2">
                       <button
                         onClick={toggleTheme}
-                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"
+                        className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                       >
                         {theme === "light" ? (
                           <Moon size={18} />
@@ -525,7 +525,7 @@ const Header = () => {
                       <Link
                         to="/account/wishlist"
                         onClick={() => setMobileOpen(false)}
-                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 relative"
+                        className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 relative min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500"
                       >
                         <Heart size={18} />
                         {wishlistCount > 0 && (
@@ -540,14 +540,14 @@ const Header = () => {
                         <Link
                           to="/login"
                           onClick={() => setMobileOpen(false)}
-                          className="flex-1 py-2 text-center text-sm font-medium border border-primary-600 text-primary-600 rounded-full hover:bg-primary-50 transition-colors"
+                          className="flex-1 py-2.5 text-center text-sm font-medium border border-primary-600 text-primary-600 rounded-full hover:bg-primary-50 transition-colors min-h-[44px] flex items-center justify-center"
                         >
                           Login
                         </Link>
                         <Link
                           to="/register"
                           onClick={() => setMobileOpen(false)}
-                          className="flex-1 py-2 text-center text-sm font-medium bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all"
+                          className="flex-1 py-2.5 text-center text-sm font-medium bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all min-h-[44px] flex items-center justify-center"
                         >
                           Sign Up
                         </Link>
@@ -595,7 +595,7 @@ const Header = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search dresses, tops, brands..."
-                    className="flex-1 min-w-[120px] text-sm sm:text-base outline-none bg-transparent text-gray-800 dark:text-gray-100 placeholder-gray-400"
+                    className="flex-1 min-w-[120px] text-sm sm:text-base outline-none bg-transparent text-gray-800 dark:text-gray-100 placeholder-gray-500"
                   />
                   {searchQuery && (
                     <button
@@ -670,7 +670,7 @@ const Header = () => {
                       </Link>
                     ))
                   ) : (
-                    <div className="px-5 py-4 text-sm text-gray-400 text-center">
+                    <div className="px-5 py-4 text-sm text-gray-500 text-center">
                       No products found for "{searchQuery.trim()}"
                     </div>
                   )}
@@ -681,7 +681,7 @@ const Header = () => {
               {!searchQuery.trim() && (
                 <div className="bg-white dark:bg-gray-800 rounded-b-2xl px-5 py-4 space-y-3">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs text-gray-400 font-medium">
+                    <span className="text-xs text-gray-500 font-medium">
                       Popular:
                     </span>
                     {[
@@ -705,7 +705,7 @@ const Header = () => {
                       </button>
                     ))}
                   </div>
-                  <p className="text-center text-gray-400 text-xs">
+                  <p className="text-center text-gray-500 text-xs">
                     Press{" "}
                     <kbd className="bg-gray-100 dark:bg-gray-700 rounded px-1.5 py-0.5 font-mono text-gray-600 dark:text-gray-300">
                       Esc

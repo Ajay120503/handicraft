@@ -17,9 +17,9 @@ const Input = forwardRef(
   ) => {
     const isTextarea = type === "textarea";
     const inputClasses = clsx(
-      "w-full bg-white dark:bg-gray-800 border-2 rounded-xl text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 outline-none",
+      "w-full bg-white dark:bg-gray-800 border-2 rounded-xl text-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-500 transition-all duration-200 outline-none",
       "border-gray-200 dark:border-gray-700",
-      "focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20",
+      "focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500",
       "hover:border-gray-300 dark:hover:border-gray-600",
       error && "border-red-400 focus:border-red-500 focus:ring-red-500/20",
       prefix && "pl-10",

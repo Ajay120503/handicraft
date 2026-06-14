@@ -93,7 +93,7 @@ const Footer = () => {
                       href={settings.social[key]}
                       target="_blank"
                       rel="noreferrer"
-                      className={`w-9 h-9 rounded-full bg-white/10 ${hoverColor} flex items-center justify-center transition-all duration-200 hover:scale-110`}
+                      className={`w-11 h-11 rounded-full bg-white/10 ${hoverColor} flex items-center justify-center transition-all duration-200 hover:scale-110 min-h-[44px] min-w-[44px]`}
                     >
                       <Icon size={15} />
                     </a>
@@ -108,7 +108,7 @@ const Footer = () => {
               <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" />
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-1 text-sm">
               {[
                 { to: "/", label: "Home" },
                 { to: "/shop", label: "Shop All Fashion" },
@@ -119,7 +119,7 @@ const Footer = () => {
                 <li key={to}>
                   <Link
                     to={to}
-                    className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group min-h-[44px] py-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500/60 group-hover:bg-primary-400 transition-colors" />
                     {label}
@@ -135,7 +135,7 @@ const Footer = () => {
               <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" />
               Customer Service
             </h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-1 text-sm">
               {[
                 { to: "/account/orders", label: "My Orders" },
                 { to: "/account/wishlist", label: "Wishlist" },
@@ -146,7 +146,7 @@ const Footer = () => {
                 <li key={to}>
                   <Link
                     to={to}
-                    className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group min-h-[44px] py-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-500/60 group-hover:bg-primary-400 transition-colors" />
                     {label}
@@ -231,19 +231,19 @@ const Footer = () => {
           <div className="flex gap-6">
             <Link
               to="/faq"
-              className="hover:text-primary-400 transition-colors"
+              className="hover:text-primary-400 transition-colors min-h-[44px] inline-flex items-center"
             >
               Privacy Policy
             </Link>
             <Link
               to="/faq"
-              className="hover:text-primary-400 transition-colors"
+              className="hover:text-primary-400 transition-colors min-h-[44px] inline-flex items-center"
             >
               Terms of Service
             </Link>
             <Link
               to="/contact"
-              className="hover:text-primary-400 transition-colors"
+              className="hover:text-primary-400 transition-colors min-h-[44px] inline-flex items-center"
             >
               Support
             </Link>

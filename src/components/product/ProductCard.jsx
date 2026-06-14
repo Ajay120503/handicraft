@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, ShoppingCart, Eye, Star, Ruler, Sparkles } from "lucide-react";
+import { Heart, ShoppingCart, Eye, Star, Ruler } from "lucide-react";
 import {
   formatPrice,
   getDiscountPercent,
@@ -137,7 +137,7 @@ const ProductCard = ({ product, index = 0 }) => {
           <motion.button
             whileTap={{ scale: 0.85 }}
             onClick={handleWishlist}
-            className={`absolute top-3 right-3 z-10 p-2.5 rounded-full transition-all duration-200 ${
+            className={`absolute top-3 right-3 z-10 p-2.5 rounded-full transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center sm:min-h-0 sm:min-w-0 ${
               inWishlist
                 ? "bg-primary-600 text-white scale-110"
                 : "bg-white/90 dark:bg-gray-900/80 text-gray-500 hover:bg-white backdrop-blur-sm hover:text-rose-500"
@@ -168,14 +168,14 @@ const ProductCard = ({ product, index = 0 }) => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleAddToCart}
-              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-[11px] font-bold text-gray-900 hover:bg-primary-600 hover:text-white transition-all duration-200 tracking-wide uppercase"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-4 py-3 text-[11px] font-bold text-gray-900 hover:bg-primary-600 hover:text-white transition-all duration-200 tracking-wide uppercase min-h-[44px] sm:min-h-0 sm:py-2.5"
             >
               <ShoppingCart size={13} /> Add to Cart
             </motion.button>
             <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.9 }}>
               <Link
                 to={"/product/" + (product.slug || product._id)}
-                className="p-2.5 bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm rounded-full hover:bg-primary-600 hover:text-white transition-all duration-200 text-gray-700 inline-flex"
+                className="p-2.5 bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm rounded-full hover:bg-primary-600 hover:text-white transition-all duration-200 text-gray-700 inline-flex min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0"
                 title="View Details"
               >
                 <Eye size={15} />

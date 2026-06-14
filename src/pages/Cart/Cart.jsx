@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import { useCart } from "../../store/cartStore.js";
 import { useAuth } from "../../store/authStore.js";
+import Button from "../../components/ui/Button.jsx";
 import { formatPrice, getPlaceholderImage } from "../../utils/helpers.js";
 import toast from "react-hot-toast";
 
@@ -35,11 +36,10 @@ const Cart = () => {
           <p className="text-gray-500 dark:text-gray-400 mb-6">
             Looks like you haven't added anything yet.
           </p>
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-semibold transition-all duration-200"
-          >
-            Continue Shopping <ArrowRight size={16} />
+          <Link to="/shop">
+            <Button variant="primary" size="lg">
+              Continue Shopping <ArrowRight size={16} />
+            </Button>
           </Link>
         </div>
       </div>
@@ -236,12 +236,14 @@ const Cart = () => {
             </span>
           </div>
 
-          <button
+          <Button
+            variant="primary"
+            fullWidth
+            size="lg"
             onClick={handleCheckout}
-            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-semibold transition-all duration-200"
           >
             Proceed to Checkout <ArrowRight size={16} />
-          </button>
+          </Button>
         </div>
       </div>
     </div>
