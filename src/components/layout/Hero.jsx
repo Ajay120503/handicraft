@@ -103,9 +103,9 @@ const Hero = () => {
   // ── Empty state ─────────────────────────────────────────────
   if (banners.length === 0) {
     return (
-      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100/40 dark:from-gray-950 dark:via-gray-900 dark:to-primary-950/30">
-        <div className="pointer-events-none absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-primary-200/40 dark:bg-primary-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -left-32 w-[32rem] h-[32rem] rounded-full bg-primary-100/60 dark:bg-primary-400/10 blur-3xl" />
+      <section className="relative min-h-[78vh] flex items-center overflow-hidden">
+        {/* <div className="pointer-events-none absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-primary-200/40 dark:bg-primary-500/10 blur-3xl" /> */}
+        {/* <div className="pointer-events-none absolute -bottom-40 -left-32 w-[32rem] h-[32rem] rounded-full bg-primary-100/60 dark:bg-primary-400/10 blur-3xl" /> */}
 
         <div className="container-custom relative z-10">
           <motion.div
@@ -172,7 +172,7 @@ const Hero = () => {
     <>
       <section
         ref={heroRef}
-        className="relative min-h-[78vh] sm:min-h-[90vh] overflow-hidden bg-gray-950"
+        className="relative min-h-[78vh] sm:min-h-[90vh] overflow-hidden"
       >
         <AnimatePresence mode="wait">
           {banners.map(
@@ -223,8 +223,8 @@ const Hero = () => {
           )}
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" /> */}
+        {/* <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" /> */}
 
         <div className="absolute inset-0 flex items-center">
           <div className="container-custom">
