@@ -105,7 +105,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-display font-semibold text-white mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" />
+              {/* <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" /> */}
               Quick Links
             </h4>
             <ul className="space-y-1 text-sm">
@@ -132,7 +132,7 @@ const Footer = () => {
           {/* Customer Service */}
           <div>
             <h4 className="text-lg font-display font-semibold text-white mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" />
+              {/* <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" /> */}
               Customer Service
             </h4>
             <ul className="space-y-1 text-sm">
@@ -159,7 +159,7 @@ const Footer = () => {
           {/* Contact & Newsletter */}
           <div>
             <h4 className="text-lg font-display font-semibold text-white mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" />
+              {/* <span className="w-6 h-0.5 bg-gradient-to-r from-primary-500 to-transparent rounded" /> */}
               Contact Us
             </h4>
             <ul className="space-y-3 text-sm mb-6">
