@@ -189,9 +189,9 @@ const Hero = () => {
                   <div
                     ref={layerBgRef}
                     className="absolute inset-0 will-change-transform"
-                    style={{
-                      filter: "blur(24px) brightness(0.5) saturate(1.1)",
-                    }}
+                    // style={{
+                    //   filter: "blur(24px) brightness(0.5) saturate(1.1)",
+                    // }}
                   >
                     <img
                       src={
@@ -205,10 +205,10 @@ const Hero = () => {
                   <div
                     ref={layerFgRef}
                     className="absolute inset-0 sm:inset-8 lg:inset-12 will-change-transform"
-                    style={{
-                      filter:
-                        "drop-shadow(0 30px 60px rgba(0,0,0,0.45)) contrast(1.04)",
-                    }}
+                    // style={{
+                    //   filter:
+                    //     "drop-shadow(0 30px 60px rgba(0,0,0,0.45)) contrast(1.04)",
+                    // }}
                   >
                     <img
                       src={
